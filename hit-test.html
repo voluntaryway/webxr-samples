@@ -41,6 +41,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         </p>
       </details>
     </header>
+
+    <div id="overlay">
+      <header>
+        <summary>Barebones WebXR DOM Overlay</summary>
+        <p>
+          This sample demonstrates [...]
+        </p>
+        <div id="session-info" />
+        <button id="xr-button" class="barebones-button" />
+      </header>
+    </div>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
       import {Scene} from './js/render/scenes/scene.js';
@@ -105,8 +116,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       }
 
       function onRequestSession() {
-        return navigator.xr.requestSession('immersive-ar', {requiredFeatures: ['local', 'hit-test']})
-                           .then((session) => {
+        return navigator.xr.requestSession('immersive-ar', {
+            requiredFeatures: ['local', 'hit-test'], 
+            optionalFeatures: ["dom-overlay"],
+            domOverlay: {
+              root: document.getElementById("overlay")
+            }
+          })
+          .then((session) => {
           xrButton.setSession(session);
           onSessionStarted(session);
         });
