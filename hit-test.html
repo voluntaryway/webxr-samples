@@ -44,11 +44,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     <div id="overlay" style="position: absolute; bottom: 0; margin: 25px;">
 
-      <Button onclick="rotate()">
+      <Button>
         Rotate
       </Button>
       
     </div>
+
+    <script>
+
+
+    </script>
 
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
@@ -234,6 +239,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Start the XR application.
       initXR();
 
+      document.addEventListener("click", rotate);
 
       function rotate() {
         let lastFlower;
