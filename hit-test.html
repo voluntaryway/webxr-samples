@@ -44,7 +44,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     <div id="overlay" style="display: flex; align-items: flex-end; justify-content: center;">
 
-      <div style="background: rgba(255,255,255,0.75);
+      <div id="rotateButton" style="background: rgba(255,255,255,0.75);
       height: fit-content;
       padding: 0.5rem;
       margin: 5rem;
@@ -238,7 +238,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Start the XR application.
       initXR();
 
-      document.getElementById("overlay").addEventListener("click", rotate);
+      document.getElementById("rotateButton").addEventListener("click", rotate);
 
       function rotate() {
         let lastFlower;
