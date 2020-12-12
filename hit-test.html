@@ -42,16 +42,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       </details>
     </header>
 
-    <div id="overlay">
-      <header>
-        <summary>Barebones WebXR DOM Overlay</summary>
-        <p>
-          This sample demonstrates [...]
-        </p>
-        <div id="session-info" />
-        <button id="xr-button" class="barebones-button" />
-      </header>
+    <div id="overlay" style="position: absolute; bottom: 0; margin: 25px;">
+
+      <Button onclick="rotate()">
+        Rotate
+      </Button>
+      
     </div>
+
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
       import {Scene} from './js/render/scenes/scene.js';
@@ -180,9 +178,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         newFlower.visible = true;
         newFlower.matrix = matrix;
 
-        let random = Math.random() * Math.PI * 2;
-
-        mat4.rotateY(newFlower.matrix, newFlower.matrix, random);
+        //let random = Math.random() * Math.PI * 2;
         
         scene.addNode(newFlower);
 
@@ -237,6 +233,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       // Start the XR application.
       initXR();
+
+
+      function rotate() {
+        let lastFlower;
+        if(flowers.length) {
+          lastFlower = flowers[flowers.length - 1];
+          mat4.rotateY(lastFlower.matrix, lastFlower.matrix, Math.PI * 2 / 36);
+        }
+        
+        
+      }
     </script>
   </body>
 </html>
