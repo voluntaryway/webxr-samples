@@ -165,8 +165,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         let random = Math.random() * Math.PI * 2;
 
-        mat4.fromRotation(newFlower.matrix, random, vec3.fromValues(0, 0, 1));
-        console.log(newFlower.matrix);
+        mat4.rotateZ(newFlower.matrix, newFlower.matrix, random);
+        
         scene.addNode(newFlower);
 
         flowers.push(newFlower);
