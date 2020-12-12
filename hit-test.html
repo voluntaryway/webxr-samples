@@ -42,18 +42,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       </details>
     </header>
 
-    <div id="overlay" style="position: absolute; bottom: 0; margin: 25px;">
+    <div id="overlay" style="display: flex; align-items: flex-end; justify-content: center;">
 
-      <Button>
-        Rotate
-      </Button>
+      <div style="background: rgba(255,255,255,0.75);
+      height: fit-content;
+      padding: 0.5rem;
+      margin: 5rem;
+      font-size: 20px;">
+      Rotate
+      </div>
       
     </div>
-
-    <script>
-
-
-    </script>
 
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
@@ -239,7 +238,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Start the XR application.
       initXR();
 
-      document.addEventListener("click", rotate);
+      document.getElementById("overlay").addEventListener("click", rotate);
 
       function rotate() {
         let lastFlower;
