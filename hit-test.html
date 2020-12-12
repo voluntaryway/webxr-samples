@@ -44,13 +44,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     <div id="overlay" style="display: flex; align-items: flex-end; justify-content: center;">
 
-      <div id="rotateButton" style="background: rgba(255,255,255,0.75);
+      <Button id="rotateButton" style="background: rgba(255,255,255,0.75);
       height: fit-content;
       padding: 0.5rem;
       margin: 5rem;
       font-size: 20px;">
       Drehen
-      </div>
+    </Button>
       
     </div>
 
@@ -239,6 +239,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       initXR();
 
       document.getElementById("rotateButton").addEventListener("click", rotate);
+
+      document.getElementById('rotateButton').addEventListener('beforexrselect', (ev) => {
+       ev.preventDefault();
+      });
 
       function rotate() {
         let lastFlower;
